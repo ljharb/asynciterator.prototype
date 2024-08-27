@@ -9,16 +9,16 @@ test('AsyncIterator.prototype', function (t) {
 	t.ok(asyncIterProto, 'is truthy');
 	t.equal(typeof asyncIterProto, 'object', 'is an object');
 
-	t.test('Symbol.iterator', { skip: !hasSymbols }, function (st) {
-		var fn = asyncIterProto[Symbol.iterator];
+	t.test('Symbol.asyncIterator', { skip: !hasSymbols || !Symbol.asyncIterator }, function (st) {
+		var fn = asyncIterProto[Symbol.asyncIterator];
 
-		st.equal(typeof fn, 'function', 'Symbol.iterator is a function');
+		st.equal(typeof fn, 'function', 'Symbol.asyncIterator is a function');
 
 		var sentinel = {};
 		st.equal(
 			fn.call(sentinel),
 			sentinel,
-			'Symbol.iterator returns receiver'
+			'Symbol.asyncIterator returns receiver'
 		);
 
 		st.end();

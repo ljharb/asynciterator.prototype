@@ -6,8 +6,8 @@ var hasSymbols = require('has-symbols');
 
 var asyncIterProto = typeof AsyncIterator === 'function' ? AsyncIterator.prototype : {};
 
-if (hasSymbols() && !(Symbol.iterator in asyncIterProto)) {
-	asyncIterProto[Symbol.iterator] = function () {
+if (hasSymbols() && Symbol.asyncIterator && !(Symbol.asyncIterator in asyncIterProto)) {
+	asyncIterProto[Symbol.asyncIterator] = function () {
 		return this;
 	};
 }
