@@ -40,6 +40,7 @@
 	},
 	"homepage": "https://github.com/ljharb/AsyncIterator.prototype#readme",
 	"dependencies": {
+		"get-intrinsic": "^1.2.4",
 		"has-symbols": "^1.0.3"
 	},
 	"devDependencies": {
